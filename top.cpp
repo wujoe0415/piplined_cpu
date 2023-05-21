@@ -50,7 +50,7 @@ int main() {
         // read file - cycle
         int cycle;
         fs >> cycle;
-        cycle *= 10;
+        cycle *= 5;
         cout << endl << "Pattern " << i+1 << " check at cycle " << cycle << endl;
 
         // initialize imem

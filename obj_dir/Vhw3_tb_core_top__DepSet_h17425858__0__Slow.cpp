@@ -243,14 +243,13 @@ VL_ATTR_COLD void Vhw3_tb_core_top___settle__TOP__hw3_tb__core_top_inst__4(Vhw3_
                      : 0U));
     vlSelf->__PVT__ifid_flush = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                  & (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
-    vlSelf->__PVT__idex_flush = ((1U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                 | (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
-    vlSelf->__PVT__pc_write = ((~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)) 
+    vlSelf->__PVT__idex_flush = (1U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type));
+    vlSelf->__PVT__pc_write = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                & ((2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                  | (1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type))));
-    vlSelf->__PVT__ifid_write = ((~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)) 
+                                  | (~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter))));
+    vlSelf->__PVT__ifid_write = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                  & ((2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                    | (1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type))));
+                                    | (~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter))));
 }
 
 VL_ATTR_COLD void Vhw3_tb_core_top___ctor_var_reset(Vhw3_tb_core_top* vlSelf) {

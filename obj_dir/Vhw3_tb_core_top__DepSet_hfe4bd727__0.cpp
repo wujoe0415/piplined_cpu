@@ -25,6 +25,20 @@ VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2(Vhw
     __Vdly__pc = vlSelf->__PVT__pc;
     __Vdlyvset__reg_file_inst__DOT__R__v0 = 0U;
     __Vdlyvset__reg_file_inst__DOT__R__v32 = 0U;
+    if ((1U & (~ (IData)(vlSymsp->TOP.rst)))) {
+        if ((((1U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
+              & (0U == (IData)(vlSelf->__PVT__alu_inst__DOT__result))) 
+             & (IData)(vlSelf->__PVT__pc_write))) {
+            vlSelf->__PVT__idex_flush = 1U;
+        } else if (((3U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
+                    & (IData)(vlSelf->__PVT__pc_write))) {
+            vlSelf->__PVT__idex_flush = 1U;
+        } else if ((((2U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
+                     | (4U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type))) 
+                    & (IData)(vlSelf->__PVT__pc_write))) {
+            vlSelf->__PVT__idex_flush = 1U;
+        }
+    }
     if (((IData)(vlSelf->__PVT__wb_rdst_id) == (0x1fU 
                                                 & (vlSelf->__PVT__instr 
                                                    >> 0x15U)))) {
@@ -507,12 +521,11 @@ VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__3(Vhw
                      : 0U));
     vlSelf->__PVT__ifid_flush = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                  & (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
-    vlSelf->__PVT__idex_flush = ((1U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                 | (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
-    vlSelf->__PVT__pc_write = ((~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)) 
+    vlSelf->__PVT__idex_flush = (1U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type));
+    vlSelf->__PVT__pc_write = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                & ((2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                  | (1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type))));
-    vlSelf->__PVT__ifid_write = ((~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)) 
+                                  | (~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter))));
+    vlSelf->__PVT__ifid_write = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                  & ((2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                    | (1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type))));
+                                    | (~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter))));
 }

@@ -83,9 +83,9 @@ module core_top #(
     // hazard control signals
     reg ifid_write; 
     reg pc_write;
-    wire ifid_flush;
-    wire idex_flush;
-    wire exmem_flush;
+    reg ifid_flush;
+    reg idex_flush;
+    reg exmem_flush;
     
     initial begin
         pc_write = 1'b1;
@@ -94,16 +94,24 @@ module core_top #(
     assign pc_increment = pc + 4;
     // Program counter
     always @(posedge clk) begin
+        idex_flush = 1'b0;
         if (rst)
             pc <= 0;
-        else if (ex_jump_type == J_TYPE_BEQ && zero && pc_write == 1'b1)
+        else if (ex_jump_type == J_TYPE_BEQ && zero && pc_write)
+        begin
             pc <= pc + 4 + {ex_imm[29:0], 2'b00};
-        else if (ex_jump_type == J_TYPE_JR && pc_write == 1'b1) 
+           idex_flush = 1'b1;
+        end
+        else if (ex_jump_type == J_TYPE_JR && pc_write) begin
             pc <= ex_rs1;
-        else if ((ex_jump_type == J_TYPE_JAL || ex_jump_type == J_TYPE_J )&& pc_write == 1'b1) 
-            pc <= {pc[31:28], ex_jump_addr, 2'b00};
+            idex_flush = 1'b1;
+        end
+        else if ((ex_jump_type == J_TYPE_JAL || ex_jump_type == J_TYPE_J) && pc_write) 
+        begin
+            pc <= {ex_pc[31:28], ex_jump_addr, 2'b00};
+            idex_flush = 1'b1;
+        end
         else if (pc_write == 1'b1)begin
-            //$display("next instrunction");
             pc <= pc_increment;
         end
     end
