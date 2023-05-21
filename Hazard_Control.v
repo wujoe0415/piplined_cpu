@@ -7,6 +7,8 @@ module Hazard_Control(
     input [4:0] rs1_id,
     input [4:0] rs2_id,
     input [4:0] idex_regt,
+    input [4:0] exmem_regt,
+
     output reg ifid_write, 
     output reg pc_write,
     output reg ifid_flush,
@@ -25,7 +27,8 @@ always @(posedge clk) begin // Data Hazard
         data_stall_counter = data_stall_counter - 1;
     end
     else begin
-    if(mem_read == 1'b1 &&(idex_regt != 1'b0 && (idex_regt == rs1_id || idex_regt == rs2_id)))
+    if(mem_read == 1'b1 &&(((idex_regt != 1'b0 && (idex_regt == rs1_id || idex_regt == rs2_id)))
+                        ||(exmem_regt != 1'b0 &&(exmem_regt == rs1_id || exmem_regt == rs2_id))))
     begin
         $display("data hazard");
         data_stall_counter = 1;

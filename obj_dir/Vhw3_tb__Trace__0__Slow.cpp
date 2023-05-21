@@ -217,6 +217,7 @@ VL_ATTR_COLD void Vhw3_tb___024root__trace_init_sub__TOP__hw3_tb__core_top_inst_
     tracep->declBus(c+16,"rs1_id", false,-1, 4,0);
     tracep->declBus(c+17,"rs2_id", false,-1, 4,0);
     tracep->declBus(c+35,"idex_regt", false,-1, 4,0);
+    tracep->declBus(c+44,"exmem_regt", false,-1, 4,0);
     tracep->declBit(c+51,"ifid_write", false,-1);
     tracep->declBit(c+52,"pc_write", false,-1);
     tracep->declBit(c+53,"ifid_flush", false,-1);

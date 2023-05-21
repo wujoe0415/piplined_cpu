@@ -275,4 +275,5 @@ VL_ATTR_COLD void Vhw3_tb_core_top___ctor_var_reset(Vhw3_tb_core_top* vlSelf) {
     vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter = VL_RAND_RESET_I(32);
     vlSelf->__Vdly__instr = VL_RAND_RESET_I(32);
     vlSelf->__Vdly__idex_flush = VL_RAND_RESET_I(1);
+    vlSelf->__Vdly__exmem_flush = VL_RAND_RESET_I(1);
 }

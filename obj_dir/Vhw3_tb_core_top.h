@@ -42,6 +42,7 @@ VL_MODULE(Vhw3_tb_core_top) {
     CData/*0:0*/ __PVT__exmem_flush;
     CData/*2:0*/ __Vcellout__idex_instr__EX_jump_type;
     CData/*0:0*/ __Vdly__idex_flush;
+    CData/*0:0*/ __Vdly__exmem_flush;
     IData/*31:0*/ __PVT__pc;
     IData/*31:0*/ __PVT__pc_increment;
     IData/*31:0*/ __PVT__instr;

@@ -267,6 +267,7 @@ module core_top #(
         .rs1_id(rs1_id),
         .rs2_id(rs2_id),
         .idex_regt(ex_rdst_id),
+        .exmem_regt(mem_rdst_id),
         .ifid_write(ifid_write), 
         .pc_write(pc_write),
         .ifid_flush(ifid_flush),
