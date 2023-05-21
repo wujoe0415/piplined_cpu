@@ -21,6 +21,7 @@ VL_MODULE(Vhw3_tb_core_top) {
     VL_IN8(__PVT__clk,0,0);
     VL_IN8(__PVT__rst,0,0);
     CData/*3:0*/ __PVT__op;
+    CData/*0:0*/ __PVT__we_regfile;
     CData/*2:0*/ __PVT__jump_type;
     CData/*0:0*/ __PVT__branch;
     CData/*3:0*/ __PVT__ex_op;
@@ -39,7 +40,6 @@ VL_MODULE(Vhw3_tb_core_top) {
     CData/*0:0*/ __PVT__pc_write;
     CData/*0:0*/ __PVT__ifid_flush;
     CData/*0:0*/ __PVT__idex_flush;
-    CData/*0:0*/ __PVT__exmem_flush;
     CData/*2:0*/ __Vcellout__idex_instr__EX_jump_type;
     CData/*1:0*/ __PVT__hazard_ctrl_inst__DOT__hazard_type;
     IData/*31:0*/ __PVT__pc;

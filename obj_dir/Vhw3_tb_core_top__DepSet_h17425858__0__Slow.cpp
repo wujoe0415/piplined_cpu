@@ -95,6 +95,24 @@ VL_ATTR_COLD void Vhw3_tb_core_top___settle__TOP__hw3_tb__core_top_inst__4(Vhw3_
     vlSelf->__PVT__alu_rs2 = ((IData)(vlSelf->__PVT__ex_ssel)
                                ? vlSelf->__PVT__ex_rs2
                                : vlSelf->__PVT__ex_imm);
+    vlSelf->__PVT__we_regfile = (1U & ((0U == (vlSelf->__PVT__instr 
+                                               >> 0x1aU))
+                                        ? ((8U == (0x3fU 
+                                                   & vlSelf->__PVT__instr))
+                                            ? 0U : 1U)
+                                        : ((((8U == 
+                                              (vlSelf->__PVT__instr 
+                                               >> 0x1aU)) 
+                                             | (0xaU 
+                                                == 
+                                                (vlSelf->__PVT__instr 
+                                                 >> 0x1aU))) 
+                                            | (0x23U 
+                                               == (vlSelf->__PVT__instr 
+                                                   >> 0x1aU))) 
+                                           | (3U == 
+                                              (vlSelf->__PVT__instr 
+                                               >> 0x1aU)))));
     vlSelf->__PVT__jump_type = ((vlSelf->__PVT__instr 
                                  >> 0x1fU) ? 0U : (
                                                    (0x40000000U 
@@ -221,12 +239,31 @@ VL_ATTR_COLD void Vhw3_tb_core_top___settle__TOP__hw3_tb__core_top_inst__4(Vhw3_
                                                      ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
                                                       & (QData)((IData)(vlSelf->__PVT__alu_rs2))))))));
     vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type 
-        = ((((((((0U == (vlSelf->__PVT__instr >> 0x1aU)) 
-                 | (8U == (vlSelf->__PVT__instr >> 0x1aU))) 
-                | (0xaU == (vlSelf->__PVT__instr >> 0x1aU))) 
-               | (0x23U == (vlSelf->__PVT__instr >> 0x1aU))) 
-              | (0x2bU == (vlSelf->__PVT__instr >> 0x1aU))) 
-             | (4U == (vlSelf->__PVT__instr >> 0x1aU))) 
+        = ((((IData)(vlSelf->__PVT__we_regfile) & (
+                                                   (((((0U 
+                                                        == 
+                                                        (vlSelf->__PVT__instr 
+                                                         >> 0x1aU)) 
+                                                       | (8U 
+                                                          == 
+                                                          (vlSelf->__PVT__instr 
+                                                           >> 0x1aU))) 
+                                                      | (0xaU 
+                                                         == 
+                                                         (vlSelf->__PVT__instr 
+                                                          >> 0x1aU))) 
+                                                     | (0x23U 
+                                                        == 
+                                                        (vlSelf->__PVT__instr 
+                                                         >> 0x1aU))) 
+                                                    | (0x2bU 
+                                                       == 
+                                                       (vlSelf->__PVT__instr 
+                                                        >> 0x1aU))) 
+                                                   | (4U 
+                                                      == 
+                                                      (vlSelf->__PVT__instr 
+                                                       >> 0x1aU)))) 
             & (((0U != (IData)(vlSelf->__PVT__ex_rdst_id)) 
                 & (((IData)(vlSelf->__PVT__ex_rdst_id) 
                     == (0x1fU & (vlSelf->__PVT__instr 
@@ -247,8 +284,6 @@ VL_ATTR_COLD void Vhw3_tb_core_top___settle__TOP__hw3_tb__core_top_inst__4(Vhw3_
                      : 0U));
     vlSelf->__PVT__ifid_flush = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                  & (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
-    vlSelf->__PVT__exmem_flush = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                  & (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
     vlSelf->__PVT__idex_flush = ((1U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                  | (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
     vlSelf->__PVT__pc_write = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
@@ -270,6 +305,7 @@ VL_ATTR_COLD void Vhw3_tb_core_top___ctor_var_reset(Vhw3_tb_core_top* vlSelf) {
     vlSelf->__PVT__pc_increment = VL_RAND_RESET_I(32);
     vlSelf->__PVT__instr = VL_RAND_RESET_I(32);
     vlSelf->__PVT__op = VL_RAND_RESET_I(4);
+    vlSelf->__PVT__we_regfile = VL_RAND_RESET_I(1);
     vlSelf->__PVT__jump_type = VL_RAND_RESET_I(3);
     vlSelf->__PVT__branch = VL_RAND_RESET_I(1);
     vlSelf->__PVT__rs1_out = VL_RAND_RESET_I(32);
@@ -301,7 +337,6 @@ VL_ATTR_COLD void Vhw3_tb_core_top___ctor_var_reset(Vhw3_tb_core_top* vlSelf) {
     vlSelf->__PVT__pc_write = VL_RAND_RESET_I(1);
     vlSelf->__PVT__ifid_flush = VL_RAND_RESET_I(1);
     vlSelf->__PVT__idex_flush = VL_RAND_RESET_I(1);
-    vlSelf->__PVT__exmem_flush = VL_RAND_RESET_I(1);
     vlSelf->__Vcellout__idex_instr__EX_jump_type = VL_RAND_RESET_I(3);
     vlSelf->__Vcellout__idex_instr__EX_jump_addr = VL_RAND_RESET_I(26);
     for (int __Vi0=0; __Vi0<32; ++__Vi0) {
