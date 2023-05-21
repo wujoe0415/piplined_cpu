@@ -228,7 +228,7 @@ VL_ATTR_COLD void Vhw3_tb___024root__trace_init_sub__TOP__hw3_tb__core_top_inst_
     tracep->declBit(c+54,"idex_flush", false,-1);
     tracep->declBit(c+202,"exmem_flush", false,-1);
     tracep->declBus(c+69,"hazard_type", false,-1, 1,0);
-    tracep->declBus(c+70,"data_stall_counter", false,-1, 31,0);
+    tracep->declBit(c+70,"data_stall_counter", false,-1);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("idex_instr ");
     tracep->declBit(c+108,"clk", false,-1);
@@ -538,7 +538,7 @@ VL_ATTR_COLD void Vhw3_tb___024root__trace_full_sub_0(Vhw3_tb___024root* vlSelf,
     tracep->fullBit(oldp+68,((2U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
                                      >> 0x1aU))));
     tracep->fullCData(oldp+69,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__hazard_ctrl_inst__DOT__hazard_type),2);
-    tracep->fullIData(oldp+70,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__hazard_ctrl_inst__DOT__data_stall_counter),32);
+    tracep->fullBit(oldp+70,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__hazard_ctrl_inst__DOT__data_stall_counter));
     tracep->fullIData(oldp+71,(vlSymsp->TOP__hw3_tb__core_top_inst.__Vcellout__idex_instr__EX_jump_addr),26);
     tracep->fullCData(oldp+72,(vlSymsp->TOP__hw3_tb__core_top_inst.__Vcellout__idex_instr__EX_jump_type),3);
     tracep->fullIData(oldp+73,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__reg_file_inst__DOT__R[0]),32);

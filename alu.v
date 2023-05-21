@@ -35,8 +35,8 @@ module alu #(
             OP_OR   : result =  (rs1 | rs2);
             OP_ADD  : result =  (rs1 + rs2);
             OP_SUB  : begin
+                //$display("Result : ", result);
                 result =  (rs1 - rs2);
-                $display("Result : ", result);
             end
             OP_NOR  : result = ~(rs1 | rs2);
             OP_SLT  : result =  $signed(rs1) < $signed(rs2);

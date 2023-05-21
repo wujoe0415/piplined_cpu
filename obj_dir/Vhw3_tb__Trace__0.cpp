@@ -189,7 +189,7 @@ void Vhw3_tb___024root__trace_chg_sub_0(Vhw3_tb___024root* vlSelf, VerilatedVcd*
         tracep->chgBit(oldp+67,((2U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
                                         >> 0x1aU))));
         tracep->chgCData(oldp+68,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__hazard_ctrl_inst__DOT__hazard_type),2);
-        tracep->chgIData(oldp+69,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__hazard_ctrl_inst__DOT__data_stall_counter),32);
+        tracep->chgBit(oldp+69,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__hazard_ctrl_inst__DOT__data_stall_counter));
         tracep->chgIData(oldp+70,(vlSymsp->TOP__hw3_tb__core_top_inst.__Vcellout__idex_instr__EX_jump_addr),26);
         tracep->chgCData(oldp+71,(vlSymsp->TOP__hw3_tb__core_top_inst.__Vcellout__idex_instr__EX_jump_type),3);
         tracep->chgIData(oldp+72,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__reg_file_inst__DOT__R[0]),32);

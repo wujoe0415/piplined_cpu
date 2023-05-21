@@ -94,7 +94,6 @@ module core_top #(
     assign pc_increment = pc + 4;
     // Program counter
     always @(posedge clk) begin
-        //$display(pc);
         if (rst)
             pc <= 0;
         else if (ex_jump_type == J_TYPE_BEQ && zero && pc_write == 1'b1)

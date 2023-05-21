@@ -41,6 +41,7 @@ VL_MODULE(Vhw3_tb_core_top) {
     CData/*0:0*/ __PVT__idex_flush;
     CData/*2:0*/ __Vcellout__idex_instr__EX_jump_type;
     CData/*1:0*/ __PVT__hazard_ctrl_inst__DOT__hazard_type;
+    CData/*0:0*/ __PVT__hazard_ctrl_inst__DOT__data_stall_counter;
     IData/*31:0*/ __PVT__pc;
     IData/*31:0*/ __PVT__pc_increment;
     IData/*31:0*/ __PVT__instr;
@@ -59,7 +60,6 @@ VL_MODULE(Vhw3_tb_core_top) {
     IData/*31:0*/ __PVT__wb_rdata;
     IData/*25:0*/ __Vcellout__idex_instr__EX_jump_addr;
     IData/*31:0*/ __PVT__reg_file_inst__DOT__i;
-    IData/*31:0*/ __PVT__hazard_ctrl_inst__DOT__data_stall_counter;
     IData/*31:0*/ __Vdly__instr;
     QData/*32:0*/ __PVT__alu_inst__DOT__result;
     VlUnpacked<IData/*31:0*/, 32> __PVT__reg_file_inst__DOT__R;

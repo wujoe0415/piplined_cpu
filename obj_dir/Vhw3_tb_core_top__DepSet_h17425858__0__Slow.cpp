@@ -136,9 +136,11 @@ VL_ATTR_COLD void Vhw3_tb_core_top___settle__TOP__hw3_tb__core_top_inst__4(Vhw3_
                                                          ? 3U
                                                          : 0U)))))));
     vlSelf->__PVT__branch = (0U != (IData)(vlSelf->__PVT__jump_type));
-    if ((8U & (IData)(vlSelf->__PVT__ex_op))) {
-        vlSelf->__PVT__alu_inst__DOT__result = (0x1ffffffffULL 
-                                                & ((4U 
+    vlSelf->__PVT__alu_inst__DOT__result = (0x1ffffffffULL 
+                                            & ((8U 
+                                                & (IData)(vlSelf->__PVT__ex_op))
+                                                ? (
+                                                   (4U 
                                                     & (IData)(vlSelf->__PVT__ex_op))
                                                     ? 
                                                    ((2U 
@@ -183,59 +185,51 @@ VL_ATTR_COLD void Vhw3_tb_core_top___settle__TOP__hw3_tb__core_top_inst__4(Vhw3_
                                                       << 
                                                       (0x1fU 
                                                        & vlSelf->__PVT__alu_rs2))
-                                                      : 0ULL))));
-    } else if ((4U & (IData)(vlSelf->__PVT__ex_op))) {
-        if ((2U & (IData)(vlSelf->__PVT__ex_op))) {
-            if (VL_LIKELY((1U & (IData)(vlSelf->__PVT__ex_op)))) {
-                vlSelf->__PVT__alu_inst__DOT__result 
-                    = (QData)((IData)(VL_LTS_III(32, vlSelf->__PVT__ex_rs1, vlSelf->__PVT__alu_rs2)));
-            } else {
-                vlSelf->__PVT__alu_inst__DOT__result 
-                    = (0x1ffffffffULL & ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
-                                         - (QData)((IData)(vlSelf->__PVT__alu_rs2))));
-                VL_WRITEF("Result : %11d\n",33,vlSelf->__PVT__alu_inst__DOT__result);
-            }
-        } else {
-            vlSelf->__PVT__alu_inst__DOT__result = 0ULL;
-        }
-    } else {
-        vlSelf->__PVT__alu_inst__DOT__result = (0x1ffffffffULL 
-                                                & ((2U 
+                                                      : 0ULL)))
+                                                : (
+                                                   (4U 
                                                     & (IData)(vlSelf->__PVT__ex_op))
                                                     ? 
-                                                   ((1U 
-                                                     & (IData)(vlSelf->__PVT__ex_op))
-                                                     ? 0ULL
-                                                     : 
-                                                    ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
-                                                     + (QData)((IData)(vlSelf->__PVT__alu_rs2))))
-                                                    : 
-                                                   ((1U 
+                                                   ((2U 
                                                      & (IData)(vlSelf->__PVT__ex_op))
                                                      ? 
-                                                    ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
-                                                     | (QData)((IData)(vlSelf->__PVT__alu_rs2)))
+                                                    ((1U 
+                                                      & (IData)(vlSelf->__PVT__ex_op))
+                                                      ? (QData)((IData)(
+                                                                        VL_LTS_III(32, vlSelf->__PVT__ex_rs1, vlSelf->__PVT__alu_rs2)))
+                                                      : 
+                                                     ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
+                                                      - (QData)((IData)(vlSelf->__PVT__alu_rs2))))
+                                                     : 0ULL)
+                                                    : 
+                                                   ((2U 
+                                                     & (IData)(vlSelf->__PVT__ex_op))
+                                                     ? 
+                                                    ((1U 
+                                                      & (IData)(vlSelf->__PVT__ex_op))
+                                                      ? 0ULL
+                                                      : 
+                                                     ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
+                                                      + (QData)((IData)(vlSelf->__PVT__alu_rs2))))
                                                      : 
-                                                    ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
-                                                     & (QData)((IData)(vlSelf->__PVT__alu_rs2))))));
-    }
+                                                    ((1U 
+                                                      & (IData)(vlSelf->__PVT__ex_op))
+                                                      ? 
+                                                     ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
+                                                      | (QData)((IData)(vlSelf->__PVT__alu_rs2)))
+                                                      : 
+                                                     ((QData)((IData)(vlSelf->__PVT__ex_rs1)) 
+                                                      & (QData)((IData)(vlSelf->__PVT__alu_rs2))))))));
     vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type 
-        = (((((((((0U == (vlSelf->__PVT__instr >> 0x1aU)) 
-                  | (8U == (vlSelf->__PVT__instr >> 0x1aU))) 
-                 | (0xaU == (vlSelf->__PVT__instr >> 0x1aU))) 
-                | (0x23U == (vlSelf->__PVT__instr >> 0x1aU))) 
-               | (0x2bU == (vlSelf->__PVT__instr >> 0x1aU))) 
-              | (4U == (vlSelf->__PVT__instr >> 0x1aU))) 
-             & ((((1U == (IData)(vlSelf->__PVT__ex_wbsel)) 
-                  | (IData)(vlSelf->__PVT__ex_we_reg)) 
-                 & (0U != (IData)(vlSelf->__PVT__ex_rdst_id))) 
-                & (((IData)(vlSelf->__PVT__ex_rdst_id) 
-                    == (0x1fU & (vlSelf->__PVT__instr 
-                                 >> 0x15U))) | ((IData)(vlSelf->__PVT__ex_rdst_id) 
-                                                == 
-                                                (0x1fU 
+        = ((((((1U == (IData)(vlSelf->__PVT__ex_wbsel)) 
+               | (IData)(vlSelf->__PVT__ex_we_reg)) 
+              & (0U != (IData)(vlSelf->__PVT__ex_rdst_id))) 
+             & (((IData)(vlSelf->__PVT__ex_rdst_id) 
+                 == (0x1fU & (vlSelf->__PVT__instr 
+                              >> 0x15U))) | ((IData)(vlSelf->__PVT__ex_rdst_id) 
+                                             == (0x1fU 
                                                  & (vlSelf->__PVT__instr 
-                                                    >> 0x10U)))))) 
+                                                    >> 0x10U))))) 
             | ((((1U == (IData)(vlSelf->__PVT__mem_wbsel)) 
                  | (IData)(vlSelf->__PVT__mem_we_reg)) 
                 & (0U != (IData)(vlSelf->__PVT__mem_rdst_id))) 
@@ -251,12 +245,12 @@ VL_ATTR_COLD void Vhw3_tb_core_top___settle__TOP__hw3_tb__core_top_inst__4(Vhw3_
                                  & (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
     vlSelf->__PVT__idex_flush = ((1U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
                                  | (2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)));
-    vlSelf->__PVT__pc_write = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
+    vlSelf->__PVT__pc_write = ((~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)) 
                                & ((2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                  | VL_GTES_III(32, 0U, vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)));
-    vlSelf->__PVT__ifid_write = ((1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
+                                  | (1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type))));
+    vlSelf->__PVT__ifid_write = ((~ (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)) 
                                  & ((2U == (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type)) 
-                                    | VL_GTES_III(32, 0U, vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter)));
+                                    | (1U != (IData)(vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type))));
 }
 
 VL_ATTR_COLD void Vhw3_tb_core_top___ctor_var_reset(Vhw3_tb_core_top* vlSelf) {
@@ -309,6 +303,6 @@ VL_ATTR_COLD void Vhw3_tb_core_top___ctor_var_reset(Vhw3_tb_core_top* vlSelf) {
     vlSelf->__PVT__reg_file_inst__DOT__i = VL_RAND_RESET_I(32);
     vlSelf->__PVT__alu_inst__DOT__result = VL_RAND_RESET_Q(33);
     vlSelf->__PVT__hazard_ctrl_inst__DOT__hazard_type = VL_RAND_RESET_I(2);
-    vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter = VL_RAND_RESET_I(32);
+    vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter = VL_RAND_RESET_I(1);
     vlSelf->__Vdly__instr = VL_RAND_RESET_I(32);
 }
