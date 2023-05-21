@@ -94,15 +94,17 @@ module core_top #(
     assign pc_increment = pc + 4;
     // Program counter
     always @(posedge clk) begin
+        //$display(pc);
         if (rst)
             pc <= 0;
-        else if (ex_jump_type == J_TYPE_BEQ && zero && pc_write == 1'b1) 
-            pc <= pc_increment + {ex_imm[29:0], 2'b00};
+        else if (ex_jump_type == J_TYPE_BEQ && zero && pc_write == 1'b1)
+            pc <= pc + 4 + {ex_imm[29:0], 2'b00};
         else if (ex_jump_type == J_TYPE_JR && pc_write == 1'b1) 
-            pc <= rs1_out;
+            pc <= ex_rs1;
         else if ((ex_jump_type == J_TYPE_JAL || ex_jump_type == J_TYPE_J )&& pc_write == 1'b1) 
             pc <= {pc[31:28], ex_jump_addr, 2'b00};
         else if (pc_write == 1'b1)begin
+            //$display("next instrunction");
             pc <= pc_increment;
         end
     end
@@ -268,7 +270,10 @@ module core_top #(
         .rs2_id(rs2_id),
         .idex_regt(ex_rdst_id),
         .exmem_regt(mem_rdst_id),
-        .id_we_reg(we_regfile),
+        .ex_we_reg(ex_we_reg),
+        .mem_we_reg(mem_we_reg),
+        .mem_wbsel(mem_wbsel),
+        .ex_wbsel(ex_wbsel),
 
         .ifid_write(ifid_write), 
         .pc_write(pc_write),

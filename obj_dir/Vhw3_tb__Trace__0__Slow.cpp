@@ -214,7 +214,10 @@ VL_ATTR_COLD void Vhw3_tb___024root__trace_init_sub__TOP__hw3_tb__core_top_inst_
     tracep->declBit(c+19,"branch", false,-1);
     tracep->declBit(c+26,"zero", false,-1);
     tracep->declBit(c+20,"mem_read", false,-1);
-    tracep->declBit(c+11,"id_we_reg", false,-1);
+    tracep->declBit(c+36,"ex_we_reg", false,-1);
+    tracep->declBit(c+45,"mem_we_reg", false,-1);
+    tracep->declBus(c+38,"ex_wbsel", false,-1, 1,0);
+    tracep->declBus(c+47,"mem_wbsel", false,-1, 1,0);
     tracep->declBus(c+16,"rs1_id", false,-1, 4,0);
     tracep->declBus(c+17,"rs2_id", false,-1, 4,0);
     tracep->declBus(c+35,"idex_regt", false,-1, 4,0);
@@ -396,7 +399,21 @@ VL_ATTR_COLD void Vhw3_tb___024root__trace_full_sub_0(Vhw3_tb___024root* vlSelf,
                                  ? 1U : ((3U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
                                                  >> 0x1aU))
                                           ? 2U : 0U))),2);
-    tracep->fullBit(oldp+11,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__we_regfile));
+    tracep->fullBit(oldp+11,((1U & ((0U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                            >> 0x1aU))
+                                     ? ((8U == (0x3fU 
+                                                & vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr))
+                                         ? 0U : 1U)
+                                     : ((((8U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                                  >> 0x1aU)) 
+                                          | (0xaU == 
+                                             (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                              >> 0x1aU))) 
+                                         | (0x23U == 
+                                            (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                             >> 0x1aU))) 
+                                        | (3U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                                  >> 0x1aU)))))));
     tracep->fullBit(oldp+12,((0x2bU == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
                                         >> 0x1aU))));
     tracep->fullCData(oldp+13,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__jump_type),3);

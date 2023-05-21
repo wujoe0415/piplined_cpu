@@ -43,7 +43,24 @@ void Vhw3_tb___024root__trace_chg_sub_0(Vhw3_tb___024root* vlSelf, VerilatedVcd*
                                    ? 1U : ((3U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
                                                    >> 0x1aU))
                                             ? 2U : 0U))),2);
-        tracep->chgBit(oldp+10,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__we_regfile));
+        tracep->chgBit(oldp+10,((1U & ((0U == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                               >> 0x1aU))
+                                        ? ((8U == (0x3fU 
+                                                   & vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr))
+                                            ? 0U : 1U)
+                                        : ((((8U == 
+                                              (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                               >> 0x1aU)) 
+                                             | (0xaU 
+                                                == 
+                                                (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                                 >> 0x1aU))) 
+                                            | (0x23U 
+                                               == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                                   >> 0x1aU))) 
+                                           | (3U == 
+                                              (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
+                                               >> 0x1aU)))))));
         tracep->chgBit(oldp+11,((0x2bU == (vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__instr 
                                            >> 0x1aU))));
         tracep->chgCData(oldp+12,(vlSymsp->TOP__hw3_tb__core_top_inst.__PVT__jump_type),3);

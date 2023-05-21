@@ -10,8 +10,8 @@
 
 VL_ATTR_COLD void Vhw3_tb_hw3_tb___initial__TOP__hw3_tb__1(Vhw3_tb_hw3_tb* vlSelf);
 VL_ATTR_COLD void Vhw3_tb_imem___initial__TOP__hw3_tb__core_top_inst__imem_inst__1(Vhw3_tb_imem* vlSelf);
-VL_ATTR_COLD void Vhw3_tb_dmem___initial__TOP__hw3_tb__core_top_inst__dmem_inst__1(Vhw3_tb_dmem* vlSelf);
 VL_ATTR_COLD void Vhw3_tb_core_top___initial__TOP__hw3_tb__core_top_inst__1(Vhw3_tb_core_top* vlSelf);
+VL_ATTR_COLD void Vhw3_tb_dmem___initial__TOP__hw3_tb__core_top_inst__dmem_inst__1(Vhw3_tb_dmem* vlSelf);
 
 VL_ATTR_COLD void Vhw3_tb___024root___eval_initial(Vhw3_tb___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -22,8 +22,8 @@ VL_ATTR_COLD void Vhw3_tb___024root___eval_initial(Vhw3_tb___024root* vlSelf) {
     vlSelf->__Vm_traceActivity[1U] = 1U;
     vlSelf->__Vm_traceActivity[0U] = 1U;
     Vhw3_tb_imem___initial__TOP__hw3_tb__core_top_inst__imem_inst__1((&vlSymsp->TOP__hw3_tb__core_top_inst__imem_inst));
-    Vhw3_tb_dmem___initial__TOP__hw3_tb__core_top_inst__dmem_inst__1((&vlSymsp->TOP__hw3_tb__core_top_inst__dmem_inst));
     Vhw3_tb_core_top___initial__TOP__hw3_tb__core_top_inst__1((&vlSymsp->TOP__hw3_tb__core_top_inst));
+    Vhw3_tb_dmem___initial__TOP__hw3_tb__core_top_inst__dmem_inst__1((&vlSymsp->TOP__hw3_tb__core_top_inst__dmem_inst));
     vlSelf->__Vclklast__TOP__clk = vlSelf->clk;
 }
 
