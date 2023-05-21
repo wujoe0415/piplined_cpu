@@ -26,9 +26,7 @@ assign ifid_gate = ifid_write;
 assign pc_gate = pc_write;
 assign ifid_reset = ifid_flush;
 assign exmem_reset = exmem_flush;
-assign idex_reset = idex_reset;
-
-
+assign idex_reset = idex_flush;
 
 integer data_stall_counter;
  always @* begin
