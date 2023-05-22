@@ -8,13 +8,11 @@
 #include "verilated.h"
 
 class Vhw3_tb__Syms;
-class Vhw3_tb_imem;
 class Vhw3_tb_dmem;
 
 VL_MODULE(Vhw3_tb_core_top) {
   public:
     // CELLS
-    Vhw3_tb_imem* imem_inst;
     Vhw3_tb_dmem* dmem_inst;
 
     // DESIGN SPECIFIC STATE
@@ -62,6 +60,7 @@ VL_MODULE(Vhw3_tb_core_top) {
     IData/*31:0*/ __PVT__reg_file_inst__DOT__i;
     IData/*31:0*/ __Vdly__instr;
     QData/*32:0*/ __PVT__alu_inst__DOT__result;
+    VlUnpacked<IData/*31:0*/, 16> __PVT__imem_inst__DOT__RAM;
     VlUnpacked<IData/*31:0*/, 32> __PVT__reg_file_inst__DOT__R;
 
     // INTERNAL VARIABLES

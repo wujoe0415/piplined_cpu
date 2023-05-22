@@ -7,7 +7,6 @@
 #include "Vhw3_tb_hw3_tb.h"
 #include "Vhw3_tb_core_top.h"
 #include "Vhw3_tb_dmem.h"
-#include "Vhw3_tb_imem.h"
 
 // FUNCTIONS
 Vhw3_tb__Syms::~Vhw3_tb__Syms()
@@ -23,7 +22,6 @@ Vhw3_tb__Syms::Vhw3_tb__Syms(VerilatedContext* contextp, const char* namep,Vhw3_
     , TOP__hw3_tb(Verilated::catName(namep, "hw3_tb"))
     , TOP__hw3_tb__core_top_inst(Verilated::catName(namep, "hw3_tb.core_top_inst"))
     , TOP__hw3_tb__core_top_inst__dmem_inst(Verilated::catName(namep, "hw3_tb.core_top_inst.dmem_inst"))
-    , TOP__hw3_tb__core_top_inst__imem_inst(Verilated::catName(namep, "hw3_tb.core_top_inst.imem_inst"))
 {
     // Configure time unit / time precision
     _vm_contextp__->timeunit(-12);
@@ -32,19 +30,15 @@ Vhw3_tb__Syms::Vhw3_tb__Syms(VerilatedContext* contextp, const char* namep,Vhw3_
     TOP.hw3_tb = &TOP__hw3_tb;
     TOP__hw3_tb.core_top_inst = &TOP__hw3_tb__core_top_inst;
     TOP__hw3_tb__core_top_inst.dmem_inst = &TOP__hw3_tb__core_top_inst__dmem_inst;
-    TOP__hw3_tb__core_top_inst.imem_inst = &TOP__hw3_tb__core_top_inst__imem_inst;
     // Setup each module's pointer back to symbol table (for public functions)
     TOP.__Vconfigure(this, true);
     TOP__hw3_tb.__Vconfigure(this, true);
     TOP__hw3_tb__core_top_inst.__Vconfigure(this, true);
     TOP__hw3_tb__core_top_inst__dmem_inst.__Vconfigure(this, true);
-    TOP__hw3_tb__core_top_inst__imem_inst.__Vconfigure(this, true);
     // Setup scopes
     __Vscope_hw3_tb__core_top_inst__dmem_inst.configure(this, name(), "hw3_tb.core_top_inst.dmem_inst", "dmem_inst", 0, VerilatedScope::SCOPE_OTHER);
-    __Vscope_hw3_tb__core_top_inst__imem_inst.configure(this, name(), "hw3_tb.core_top_inst.imem_inst", "imem_inst", 0, VerilatedScope::SCOPE_OTHER);
     // Setup export functions
     for (int __Vfinal=0; __Vfinal<2; __Vfinal++) {
         __Vscope_hw3_tb__core_top_inst__dmem_inst.varInsert(__Vfinal,"RAM", &(TOP__hw3_tb__core_top_inst__dmem_inst.RAM), false, VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,15,0);
-        __Vscope_hw3_tb__core_top_inst__imem_inst.varInsert(__Vfinal,"RAM", &(TOP__hw3_tb__core_top_inst__imem_inst.RAM), false, VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,15,0);
     }
 }

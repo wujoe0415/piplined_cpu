@@ -94,8 +94,11 @@ module core_top #(
     assign pc_increment = pc + 4;
     // Program counter
     always @(posedge clk) begin
-        if (rst)
+        if (rst)begin
             pc <= 0;
+            pc_write = 1'b1;
+            ifid_write = 1'b1; 
+        end
         else if (ex_jump_type == J_TYPE_BEQ && zero && pc_write)
         begin
             pc <= pc + 4 + {ex_imm[29:0], 2'b00};
@@ -110,7 +113,7 @@ module core_top #(
         else if (pc_write == 1'b1)begin
             pc <= pc_increment;
         end
-        
+
         if(ex_jump_type != J_TYPE_NOP)
             idex_flush = 1'b1;
     end

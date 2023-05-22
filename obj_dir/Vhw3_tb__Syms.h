@@ -18,7 +18,6 @@
 #include "Vhw3_tb_hw3_tb.h"
 #include "Vhw3_tb_core_top.h"
 #include "Vhw3_tb_dmem.h"
-#include "Vhw3_tb_imem.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
 
@@ -36,11 +35,9 @@ class Vhw3_tb__Syms final : public VerilatedSyms {
     Vhw3_tb_hw3_tb                 TOP__hw3_tb;
     Vhw3_tb_core_top               TOP__hw3_tb__core_top_inst;
     Vhw3_tb_dmem                   TOP__hw3_tb__core_top_inst__dmem_inst;
-    Vhw3_tb_imem                   TOP__hw3_tb__core_top_inst__imem_inst;
 
     // SCOPE NAMES
     VerilatedScope __Vscope_hw3_tb__core_top_inst__dmem_inst;
-    VerilatedScope __Vscope_hw3_tb__core_top_inst__imem_inst;
 
     // CONSTRUCTORS
     Vhw3_tb__Syms(VerilatedContext* contextp, const char* namep, Vhw3_tb* modelp);
