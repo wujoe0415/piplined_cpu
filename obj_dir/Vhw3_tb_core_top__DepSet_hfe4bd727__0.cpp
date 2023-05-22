@@ -8,10 +8,10 @@
 #include "Vhw3_tb__Syms.h"
 #include "Vhw3_tb_core_top.h"
 
-VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2(Vhw3_tb_core_top* vlSelf) {
+VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__1(Vhw3_tb_core_top* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vhw3_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__1\n"); );
     // Init
     IData/*31:0*/ __Vdly__pc;
     IData/*31:0*/ __Vdly__out;
@@ -25,37 +25,28 @@ VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2(Vhw
     __Vdly__pc = vlSelf->__PVT__pc;
     __Vdlyvset__reg_file_inst__DOT__R__v0 = 0U;
     __Vdlyvset__reg_file_inst__DOT__R__v32 = 0U;
-    if ((1U & (~ (IData)(vlSymsp->TOP.rst)))) {
-        if ((((1U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
-              & (0U == (IData)(vlSelf->__PVT__alu_inst__DOT__result))) 
-             & (IData)(vlSelf->__PVT__pc_write))) {
-            vlSelf->__PVT__idex_flush = 1U;
-        } else if (((3U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
-                    & (IData)(vlSelf->__PVT__pc_write))) {
-            vlSelf->__PVT__idex_flush = 1U;
-        } else if ((((2U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
-                     | (4U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type))) 
-                    & (IData)(vlSelf->__PVT__pc_write))) {
-            vlSelf->__PVT__idex_flush = 1U;
-        }
+    if (vlSymsp->TOP.rst) {
+        vlSelf->__PVT__reg_file_inst__DOT__i = 0x20U;
     }
-    if (((IData)(vlSelf->__PVT__wb_rdst_id) == (0x1fU 
-                                                & (vlSelf->__PVT__instr 
-                                                   >> 0x15U)))) {
-        vlSelf->__PVT__rs1_out = vlSelf->__PVT__wb_rdata;
+    if ((0U != (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type))) {
+        vlSelf->__PVT__idex_flush = 1U;
     }
     if (((IData)(vlSelf->__PVT__wb_rdst_id) == (0x1fU 
                                                 & (vlSelf->__PVT__instr 
                                                    >> 0x10U)))) {
         vlSelf->__PVT__rs2_out = vlSelf->__PVT__wb_rdata;
     }
+    if (((IData)(vlSelf->__PVT__wb_rdst_id) == (0x1fU 
+                                                & (vlSelf->__PVT__instr 
+                                                   >> 0x15U)))) {
+        vlSelf->__PVT__rs1_out = vlSelf->__PVT__wb_rdata;
+    }
     vlSelf->__PVT__ex_ra = (((IData)(vlSymsp->TOP.rst) 
                              | (IData)(vlSelf->__PVT__idex_flush))
                              ? 0U : ((IData)(4U) + vlSelf->__PVT__out));
-    __Vdly__out = ((IData)(vlSymsp->TOP.rst) ? 0U : 
-                   ((IData)(vlSelf->__PVT__ifid_flush)
-                     ? 0U : ((IData)(vlSelf->__PVT__ifid_write)
-                              ? vlSelf->__PVT__pc : vlSelf->__PVT__out)));
+    __Vdly__out = (((IData)(vlSymsp->TOP.rst) | (IData)(vlSelf->__PVT__ifid_flush))
+                    ? 0U : ((IData)(vlSelf->__PVT__ifid_write)
+                             ? vlSelf->__PVT__pc : vlSelf->__PVT__out));
     vlSelf->__PVT__ex_op = (((IData)(vlSymsp->TOP.rst) 
                              | (IData)(vlSelf->__PVT__idex_flush))
                              ? 0U : (IData)(vlSelf->__PVT__op));
@@ -67,34 +58,31 @@ VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2(Vhw
                                          >> 0x1aU)) 
                                  | (4U == (vlSelf->__PVT__instr 
                                            >> 0x1aU))));
+    vlSelf->__Vdly__instr = (((IData)(vlSymsp->TOP.rst) 
+                              | (IData)(vlSelf->__PVT__ifid_flush))
+                              ? 0U : ((IData)(vlSelf->__PVT__ifid_write)
+                                       ? vlSymsp->TOP__hw3_tb__core_top_inst__imem_inst.RAM
+                                      [(0xfU & (vlSelf->__PVT__pc 
+                                                >> 2U))]
+                                       : vlSelf->__PVT__instr));
     if (vlSymsp->TOP.rst) {
-        vlSelf->__Vdly__instr = 0U;
         __Vdly__pc = 0U;
-    } else {
-        vlSelf->__Vdly__instr = ((IData)(vlSelf->__PVT__ifid_flush)
-                                  ? 0U : ((IData)(vlSelf->__PVT__ifid_write)
-                                           ? vlSymsp->TOP__hw3_tb__core_top_inst__imem_inst.RAM
-                                          [(0xfU & 
-                                            (vlSelf->__PVT__pc 
-                                             >> 2U))]
-                                           : vlSelf->__PVT__instr));
-        if ((((1U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
-              & (0U == (IData)(vlSelf->__PVT__alu_inst__DOT__result))) 
-             & (IData)(vlSelf->__PVT__pc_write))) {
-            __Vdly__pc = ((IData)(4U) + (vlSelf->__PVT__pc 
-                                         + (vlSelf->__PVT__ex_imm 
-                                            << 2U)));
-        } else if (((3U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
-                    & (IData)(vlSelf->__PVT__pc_write))) {
-            __Vdly__pc = vlSelf->__PVT__ex_rs1;
-        } else if ((((2U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
-                     | (4U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type))) 
-                    & (IData)(vlSelf->__PVT__pc_write))) {
-            __Vdly__pc = (vlSelf->__Vcellout__idex_instr__EX_jump_addr 
-                          << 2U);
-        } else if (vlSelf->__PVT__pc_write) {
-            __Vdly__pc = vlSelf->__PVT__pc_increment;
-        }
+    } else if ((((1U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
+                 & (0U == (IData)(vlSelf->__PVT__alu_inst__DOT__result))) 
+                & (IData)(vlSelf->__PVT__pc_write))) {
+        __Vdly__pc = ((IData)(4U) + (vlSelf->__PVT__pc 
+                                     + (vlSelf->__PVT__ex_imm 
+                                        << 2U)));
+    } else if (((3U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
+                & (IData)(vlSelf->__PVT__pc_write))) {
+        __Vdly__pc = vlSelf->__PVT__ex_rs1;
+    } else if ((((2U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type)) 
+                 | (4U == (IData)(vlSelf->__Vcellout__idex_instr__EX_jump_type))) 
+                & (IData)(vlSelf->__PVT__pc_write))) {
+        __Vdly__pc = (vlSelf->__Vcellout__idex_instr__EX_jump_addr 
+                      << 2U);
+    } else if (vlSelf->__PVT__pc_write) {
+        __Vdly__pc = vlSelf->__PVT__pc_increment;
     }
     if (vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter) {
         vlSelf->__PVT__hazard_ctrl_inst__DOT__data_stall_counter = 0U;
@@ -122,12 +110,9 @@ VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2(Vhw
         }
     }
     if (vlSymsp->TOP.rst) {
-        vlSelf->__PVT__reg_file_inst__DOT__i = 0x20U;
         __Vdlyvset__reg_file_inst__DOT__R__v0 = 1U;
-    } else if (VL_UNLIKELY(((IData)(vlSelf->__PVT__wb_we_reg) 
-                            & (0U != (IData)(vlSelf->__PVT__wb_rdst_id))))) {
-        VL_WRITEF("<Reg> Put %10# in %2#\n",32,vlSelf->__PVT__wb_rdata,
-                  5,(IData)(vlSelf->__PVT__wb_rdst_id));
+    } else if (((IData)(vlSelf->__PVT__wb_we_reg) & 
+                (0U != (IData)(vlSelf->__PVT__wb_rdst_id)))) {
         __Vdlyvval__reg_file_inst__DOT__R__v32 = vlSelf->__PVT__wb_rdata;
         __Vdlyvset__reg_file_inst__DOT__R__v32 = 1U;
         __Vdlyvdim0__reg_file_inst__DOT__R__v32 = vlSelf->__PVT__wb_rdst_id;
@@ -281,10 +266,14 @@ VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2(Vhw
     }
 }
 
-VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__3(Vhw3_tb_core_top* vlSelf) {
+extern const VlUnpacked<CData/*3:0*/, 4096> Vhw3_tb__ConstPool__TABLE_h1fd373ac_0;
+
+VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2(Vhw3_tb_core_top* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vhw3_tb__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__3\n"); );
+    VL_DEBUG_IF(VL_DBG_MSGF("+        Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__2\n"); );
+    // Init
+    SData/*11:0*/ __Vtableidx1;
     // Body
     vlSelf->__PVT__mem_rs2 = ((IData)(vlSymsp->TOP.rst)
                                ? 0U : vlSelf->__PVT__ex_rs2);
@@ -303,76 +292,28 @@ VL_INLINE_OPT void Vhw3_tb_core_top___sequent__TOP__hw3_tb__core_top_inst__3(Vhw
     vlSelf->__PVT__alu_rs2 = ((IData)(vlSelf->__PVT__ex_ssel)
                                ? vlSelf->__PVT__ex_rs2
                                : vlSelf->__PVT__ex_imm);
-    VL_WRITEF("%2#\n",6,(vlSelf->__PVT__instr >> 0x1aU));
-    vlSelf->__PVT__op = ((0U == (vlSelf->__PVT__instr 
-                                 >> 0x1aU)) ? ((0x20U 
-                                                & vlSelf->__PVT__instr)
-                                                ? (
-                                                   (0x10U 
-                                                    & vlSelf->__PVT__instr)
-                                                    ? 0xfU
-                                                    : 
-                                                   ((8U 
-                                                     & vlSelf->__PVT__instr)
-                                                     ? 
-                                                    ((4U 
-                                                      & vlSelf->__PVT__instr)
-                                                      ? 0xfU
-                                                      : 
-                                                     ((2U 
-                                                       & vlSelf->__PVT__instr)
-                                                       ? 
-                                                      ((1U 
-                                                        & vlSelf->__PVT__instr)
-                                                        ? 0xfU
-                                                        : 7U)
-                                                       : 0xfU))
-                                                     : 
-                                                    ((4U 
-                                                      & vlSelf->__PVT__instr)
-                                                      ? 
-                                                     ((2U 
-                                                       & vlSelf->__PVT__instr)
-                                                       ? 
-                                                      ((1U 
-                                                        & vlSelf->__PVT__instr)
-                                                        ? 0xcU
-                                                        : 0xfU)
-                                                       : 
-                                                      ((1U 
-                                                        & vlSelf->__PVT__instr)
-                                                        ? 1U
-                                                        : 0U))
-                                                      : 
-                                                     ((2U 
-                                                       & vlSelf->__PVT__instr)
-                                                       ? 
-                                                      ((1U 
-                                                        & vlSelf->__PVT__instr)
-                                                        ? 0xfU
-                                                        : 6U)
-                                                       : 
-                                                      ((1U 
-                                                        & vlSelf->__PVT__instr)
-                                                        ? 0xfU
-                                                        : 2U)))))
-                                                : 0xfU)
-                          : ((4U == (vlSelf->__PVT__instr 
-                                     >> 0x1aU)) ? 6U
-                              : ((((8U == (vlSelf->__PVT__instr 
-                                           >> 0x1aU)) 
-                                   | (0x23U == (vlSelf->__PVT__instr 
-                                                >> 0x1aU))) 
-                                  | (0x2bU == (vlSelf->__PVT__instr 
-                                               >> 0x1aU)))
-                                  ? 2U : ((0xaU == 
-                                           (vlSelf->__PVT__instr 
-                                            >> 0x1aU))
-                                           ? 7U : 0xfU))));
     vlSelf->__PVT__rs1_out = vlSelf->__PVT__reg_file_inst__DOT__R
         [(0x1fU & (vlSelf->__PVT__instr >> 0x15U))];
     vlSelf->__PVT__rs2_out = vlSelf->__PVT__reg_file_inst__DOT__R
         [(0x1fU & (vlSelf->__PVT__instr >> 0x10U))];
+    __Vtableidx1 = (((0xaU == (vlSelf->__PVT__instr 
+                               >> 0x1aU)) << 0xbU) 
+                    | (((0x2bU == (vlSelf->__PVT__instr 
+                                   >> 0x1aU)) << 0xaU) 
+                       | (((0x23U == (vlSelf->__PVT__instr 
+                                      >> 0x1aU)) << 9U) 
+                          | (((8U == (vlSelf->__PVT__instr 
+                                      >> 0x1aU)) << 8U) 
+                             | (((4U == (vlSelf->__PVT__instr 
+                                         >> 0x1aU)) 
+                                 << 7U) | ((0x7eU & 
+                                            (vlSelf->__PVT__instr 
+                                             << 1U)) 
+                                           | (0U == 
+                                              (vlSelf->__PVT__instr 
+                                               >> 0x1aU))))))));
+    vlSelf->__PVT__op = Vhw3_tb__ConstPool__TABLE_h1fd373ac_0
+        [__Vtableidx1];
     vlSelf->__PVT__jump_type = ((vlSelf->__PVT__instr 
                                  >> 0x1fU) ? 0U : (
                                                    (0x40000000U 

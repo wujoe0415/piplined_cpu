@@ -18,9 +18,9 @@ VL_MODULE(Vhw3_tb___024root) {
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
-    VL_OUT8(correctness,0,0);
+    VL_OUT8(finish,0,0);
     CData/*0:0*/ __Vclklast__TOP__clk;
-    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
+    VlUnpacked<CData/*0:0*/, 3> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
     Vhw3_tb__Syms* vlSymsp;  // Symbol table

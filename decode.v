@@ -92,7 +92,7 @@ module decode #(
     assign is_j      = (opcode == OP_J);
     // output signal 
     always @(*) begin
-        $display(opcode);
+        //$display(opcode);
         if (is_r_type) begin
             case (funct)
                 FUNCT_ADD: op = ALU_OP_ADD;

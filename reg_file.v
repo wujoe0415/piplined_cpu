@@ -34,7 +34,7 @@ module reg_file #(parameter DWIDTH = 32)
         end
         else if (we && rdst_id != 0) begin
             R[rdst_id] <= rdst;
-            $display("<Reg> Put ", rdst, " in ", rdst_id);
+            //$display("<Reg> Put ", rdst, " in ", rdst_id);
         end
 
         if(rdst_id == rs1_id)

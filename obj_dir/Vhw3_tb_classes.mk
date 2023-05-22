@@ -29,12 +29,12 @@ VM_CLASSES_FAST += \
 	Vhw3_tb___024root__DepSet_hacb7507d__0 \
 	Vhw3_tb___024root__DepSet_hc5bed11e__0 \
 	Vhw3_tb_hw3_tb__DepSet_h33843fb5__0 \
-	Vhw3_tb_hw3_tb__DepSet_h529000e6__0 \
 	Vhw3_tb_core_top__DepSet_hfe4bd727__0 \
 	Vhw3_tb_dmem__DepSet_h713ae65a__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
+	Vhw3_tb__ConstPool_0 \
 	Vhw3_tb___024root__Slow \
 	Vhw3_tb___024root__DepSet_hacb7507d__0__Slow \
 	Vhw3_tb___024root__DepSet_hc5bed11e__0__Slow \

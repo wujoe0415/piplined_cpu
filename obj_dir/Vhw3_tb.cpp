@@ -13,7 +13,7 @@ Vhw3_tb::Vhw3_tb(VerilatedContext* _vcontextp__, const char* _vcname__)
     : vlSymsp{new Vhw3_tb__Syms(_vcontextp__, _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rst{vlSymsp->TOP.rst}
-    , correctness{vlSymsp->TOP.correctness}
+    , finish{vlSymsp->TOP.finish}
     , hw3_tb{vlSymsp->TOP.hw3_tb}
     , rootp{&(vlSymsp->TOP)}
 {

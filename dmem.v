@@ -21,7 +21,7 @@ module dmem (
     always @(posedge clk) begin
         if (we)begin 
             RAM[addr[5:2]] <= wdata;
-            $display("<Dmem> Save ", wdata, " in ", addr[5:2]);
+            //$display("<Dmem> Save ", wdata, " in ", addr[5:2]);
         end
     end
 

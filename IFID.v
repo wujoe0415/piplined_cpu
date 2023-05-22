@@ -9,11 +9,7 @@ module IFID(
     output reg [31:0] instr
 );
 always @(posedge clk) begin
-    if(rst) begin
-        pc_out <= 32'b0;
-        instr <= 32'b0;
-    end
-    else if(flush)begin
+    if(rst || flush == 1'b1) begin
         pc_out <= 32'b0;
         instr <= 32'b0;
     end

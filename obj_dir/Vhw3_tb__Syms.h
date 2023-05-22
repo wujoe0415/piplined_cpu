@@ -39,7 +39,6 @@ class Vhw3_tb__Syms final : public VerilatedSyms {
     Vhw3_tb_imem                   TOP__hw3_tb__core_top_inst__imem_inst;
 
     // SCOPE NAMES
-    VerilatedScope __Vscope_hw3_tb;
     VerilatedScope __Vscope_hw3_tb__core_top_inst__dmem_inst;
     VerilatedScope __Vscope_hw3_tb__core_top_inst__imem_inst;
 

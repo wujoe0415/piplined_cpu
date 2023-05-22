@@ -18,12 +18,13 @@ VL_MODULE(Vhw3_tb_hw3_tb) {
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
-    VL_OUT8(correctness,0,0);
-    SData/*15:0*/ __PVT__correctness_dmem;
+    VL_OUT8(finish,0,0);
+    CData/*0:0*/ __PVT__start;
+    IData/*31:0*/ __PVT__i;
     IData/*31:0*/ __PVT__tmp;
-    IData/*31:0*/ __PVT__correctness_reg;
-    VlUnpacked<IData/*31:0*/, 32> golden_reg;
-    VlUnpacked<IData/*31:0*/, 16> golden_dmem;
+    IData/*31:0*/ __PVT__cycle_count;
+    VlUnpacked<IData/*31:0*/, 32> __PVT__golden_reg;
+    VlUnpacked<IData/*31:0*/, 16> __PVT__golden_dmem;
 
     // INTERNAL VARIABLES
     Vhw3_tb__Syms* vlSymsp;  // Symbol table
@@ -35,8 +36,6 @@ VL_MODULE(Vhw3_tb_hw3_tb) {
 
     // INTERNAL METHODS
     void __Vconfigure(Vhw3_tb__Syms* symsp, bool first);
-    void writedmem(uint32_t byte_addr, uint32_t val);
-    void writereg(uint32_t byte_addr, uint32_t val);
 } VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 

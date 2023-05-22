@@ -40,13 +40,10 @@ Vhw3_tb__Syms::Vhw3_tb__Syms(VerilatedContext* contextp, const char* namep,Vhw3_
     TOP__hw3_tb__core_top_inst__dmem_inst.__Vconfigure(this, true);
     TOP__hw3_tb__core_top_inst__imem_inst.__Vconfigure(this, true);
     // Setup scopes
-    __Vscope_hw3_tb.configure(this, name(), "hw3_tb", "hw3_tb", 0, VerilatedScope::SCOPE_OTHER);
     __Vscope_hw3_tb__core_top_inst__dmem_inst.configure(this, name(), "hw3_tb.core_top_inst.dmem_inst", "dmem_inst", 0, VerilatedScope::SCOPE_OTHER);
     __Vscope_hw3_tb__core_top_inst__imem_inst.configure(this, name(), "hw3_tb.core_top_inst.imem_inst", "imem_inst", 0, VerilatedScope::SCOPE_OTHER);
     // Setup export functions
     for (int __Vfinal=0; __Vfinal<2; __Vfinal++) {
-        __Vscope_hw3_tb.varInsert(__Vfinal,"golden_dmem", &(TOP__hw3_tb.golden_dmem), false, VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,0,15);
-        __Vscope_hw3_tb.varInsert(__Vfinal,"golden_reg", &(TOP__hw3_tb.golden_reg), false, VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,0,31);
         __Vscope_hw3_tb__core_top_inst__dmem_inst.varInsert(__Vfinal,"RAM", &(TOP__hw3_tb__core_top_inst__dmem_inst.RAM), false, VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,15,0);
         __Vscope_hw3_tb__core_top_inst__imem_inst.varInsert(__Vfinal,"RAM", &(TOP__hw3_tb__core_top_inst__imem_inst.RAM), false, VLVT_UINT32,VLVD_NODIR|VLVF_PUB_RW,2 ,31,0 ,15,0);
     }

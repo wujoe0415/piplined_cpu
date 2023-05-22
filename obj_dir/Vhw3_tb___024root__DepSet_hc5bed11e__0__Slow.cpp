@@ -20,8 +20,8 @@ VL_ATTR_COLD void Vhw3_tb___024root___ctor_var_reset(Vhw3_tb___024root* vlSelf) 
     // Body
     vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->rst = VL_RAND_RESET_I(1);
-    vlSelf->correctness = VL_RAND_RESET_I(1);
-    for (int __Vi0=0; __Vi0<2; ++__Vi0) {
+    vlSelf->finish = VL_RAND_RESET_I(1);
+    for (int __Vi0=0; __Vi0<3; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }
 }
